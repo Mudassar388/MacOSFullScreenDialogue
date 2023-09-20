@@ -15,9 +15,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Create the main window
-        //            let mainWindow = NSApplication.shared.windows.first!
-        //      
-        //        }
+//                    let mainWindow = NSApplication.shared.windows.first
+//        mainWindow?.backgroundColor = NSColor.black.withAlphaComponent(0.5)
+              
+                
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

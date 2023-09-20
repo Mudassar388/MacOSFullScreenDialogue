@@ -766,16 +766,17 @@
                     </view>
                     <connections>
                         <outlet property="customView" destination="J2T-zR-MXD" id="Uzz-Df-k0D"/>
+                        <outlet property="superView" destination="m2S-Jp-Qdl" id="poE-S7-tjh"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="327" y="636"/>
         </scene>
-        <!--Full ScreenVC-->
+        <!--FullScreenVC-->
         <scene sceneID="w9X-MN-0tL">
             <objects>
-                <viewController storyboardIdentifier="FullScreenVC" id="IeG-AN-sHn" customClass="FullScreenVC" customModule="MacFullScreen" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="FullScreenVC" storyboardIdentifier="FullScreenVC" id="IeG-AN-sHn" customClass="FullScreenVC" customModule="MacFullScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1na-CH-eju">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
