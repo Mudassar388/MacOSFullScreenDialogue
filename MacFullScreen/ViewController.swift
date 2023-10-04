@@ -3,28 +3,28 @@
 //  MacFullScreen
 //
 //  Created by Developer on 15/09/2023.
-//
-//DispatchQueue.main.async {
-//    //self.view.window?.toggleFullScreen(self)
-//    self.view.window?.toggleFullScreen(nil)
-//    self.view.window?.backgroundColor = .clear//NSColor.black.withAlphaComponent(0.6)
-//    self.view.layer?.backgroundColor = NSColor.black.withAlphaComponent(0.6).cgColor
-//
-//
-//}
+
 import Cocoa
 import AVKit
 
 class ViewController: NSViewController {
     
-    @IBOutlet var superView: NSView!
     @IBOutlet weak var customView: NSView!
+    @IBOutlet weak var custom1: NSView!
+    
     var playerView: AVPlayerView?
-    var overlayWindow: NSWindow?
+    var player = AVPlayer()
     
     override func viewDidAppear() {
         super.viewDidAppear()
+        // Hide the default title bar and buttons
+        self.view.window?.titlebarAppearsTransparent = true
+        self.view.window?.titleVisibility = .hidden
+        self.view.window?.standardWindowButton(.closeButton)?.isHidden = true
+        self.view.window?.standardWindowButton(.miniaturizeButton)?.isHidden = true
+        self.view.window?.standardWindowButton(.zoomButton)?.isHidden = true
         
+        // set transparency of window
         self.view.window?.backgroundColor = NSColor.black.withAlphaComponent(0.88)
         
         if let screen = NSScreen.main {
@@ -36,15 +36,13 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Add a tap gesture recognizer to the view
-          let tapGesture = NSClickGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        self.superView.addGestureRecognizer(tapGesture)
-   
+        //            Add a tap gesture recognizer to the view
+        let tapGesture = NSClickGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        self.custom1.addGestureRecognizer(tapGesture)
         
         // Add video playback code
-        if let videoURL = Bundle.main.url(forResource: "Smart-Work", withExtension: "mp4") {
-            let player = AVPlayer(url: videoURL)
+        if let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") {
+            player = AVPlayer(url: videoURL)
             
             // Create an AVPlayerView and add it to the custom view
             playerView = AVPlayerView()
@@ -58,7 +56,7 @@ class ViewController: NSViewController {
                     playerView.leadingAnchor.constraint(equalTo: customView.leadingAnchor),
                     playerView.trailingAnchor.constraint(equalTo: customView.trailingAnchor),
                     playerView.topAnchor.constraint(equalTo: customView.topAnchor),
-                    playerView.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
+                    playerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
                 ])
             }
             
@@ -67,32 +65,41 @@ class ViewController: NSViewController {
         }
     }
     
-    
     @IBAction func close(_ sender: Any) {
         if let window = self.view.window {
+            self.player.pause()
             window.close()
         }
     }
     
-    @objc func handleTapp(_ gestureRecognizer: NSClickGestureRecognizer) {
-        if let window = self.view.window {
-            window.close()
+    @IBAction func share(_ sender: Any) {
+        print("share tapped")
+        guard let videoURL = player.currentItem?.asset as? AVURLAsset else {
+            return
         }
-    }
-    @objc func handleTap(_ gestureRecognizer: NSClickGestureRecognizer) {
-        // Get the location of the tap
-        let tapLocation = gestureRecognizer.location(in: self.superView)
         
-        // Check if the tap occurred outside of the main parent view's bounds
-        if superView.frame.contains(tapLocation) {
-            if let window = self.view.window {
-                window.close()
-            }
+        let sharingServicePicker = NSSharingServicePicker(items: [videoURL.url])
+        sharingServicePicker.delegate = self
+        sharingServicePicker.show(relativeTo: .zero, of: self.view, preferredEdge: .minY)
+    }
+    
+    @IBAction func download(_ sender: Any) {
+        print("download tapped")
+    }
+    
+    @objc func handleTap(_ gestureRecognizer: NSClickGestureRecognizer) {
+        if let window = self.view.window {
+            player.pause()
+            window.close()
         }
     }
-
-    
-
 }
 
-        
+// Conform to NSSharingServicePickerDelegate to handle sharing completion
+extension ViewController: NSSharingServicePickerDelegate {
+    func sharingServicePicker(_ sharingServicePicker: NSSharingServicePicker, sharingServicesForItems items: [Any], proposedSharingServices proposedServices: [NSSharingService]) -> [NSSharingService] {
+        // You can customize the sharing services here if needed
+        return proposedServices
+    }
+}
+

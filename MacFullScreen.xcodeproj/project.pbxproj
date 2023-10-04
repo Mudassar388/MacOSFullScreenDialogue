@@ -12,10 +12,10 @@
 		3D674D5C2AB42E1600DD772E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D674D5B2AB42E1600DD772E /* ViewController.swift */; };
 		3D674D5E2AB42E1800DD772E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D674D5D2AB42E1800DD772E /* Assets.xcassets */; };
 		3D674D612AB42E1800DD772E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3D674D5F2AB42E1800DD772E /* Main.storyboard */; };
-		3D674D692AB42FC300DD772E /* FullScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D674D682AB42FC300DD772E /* FullScreenVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04C550AB2ACD38B600D6022E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		3D5017652AB9ACAB001D518D /* Smart-Work.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Smart-Work.mp4"; sourceTree = "<group>"; };
 		3D674D562AB42E1600DD772E /* MacFullScreen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacFullScreen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D674D592AB42E1600DD772E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -23,7 +23,6 @@
 		3D674D5D2AB42E1800DD772E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3D674D602AB42E1800DD772E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3D674D622AB42E1800DD772E /* MacFullScreen.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MacFullScreen.entitlements; sourceTree = "<group>"; };
-		3D674D682AB42FC300DD772E /* FullScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,9 +55,9 @@
 		3D674D582AB42E1600DD772E /* MacFullScreen */ = {
 			isa = PBXGroup;
 			children = (
+				04C550AB2ACD38B600D6022E /* Info.plist */,
 				3D674D592AB42E1600DD772E /* AppDelegate.swift */,
 				3D674D5B2AB42E1600DD772E /* ViewController.swift */,
-				3D674D682AB42FC300DD772E /* FullScreenVC.swift */,
 				3D674D5D2AB42E1800DD772E /* Assets.xcassets */,
 				3D674D5F2AB42E1800DD772E /* Main.storyboard */,
 				3D674D622AB42E1800DD772E /* MacFullScreen.entitlements */,
@@ -139,7 +138,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D674D5C2AB42E1600DD772E /* ViewController.swift in Sources */,
-				3D674D692AB42FC300DD772E /* FullScreenVC.swift in Sources */,
 				3D674D5A2AB42E1600DD772E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -281,6 +279,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacFullScreen/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -306,6 +306,8 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MacFullScreen/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

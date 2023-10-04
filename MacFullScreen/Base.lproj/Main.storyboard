@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -706,31 +706,40 @@
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="XfG-lQ-9wD" customClass="ViewController" customModule="MacFullScreen" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="699" height="361"/>
+                        <rect key="frame" x="0.0" y="0.0" width="911" height="523"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="zVQ-pG-2Ux">
+                                <rect key="frame" x="0.0" y="0.0" width="911" height="523"/>
+                            </customView>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="J2T-zR-MXD">
-                                <rect key="frame" x="233" y="0.0" width="233" height="361"/>
+                                <rect key="frame" x="304" y="0.0" width="303" height="523"/>
                             </customView>
                             <stackView distribution="fillEqually" orientation="horizontal" alignment="centerY" spacing="10" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WKK-WX-EME">
-                                <rect key="frame" x="496" y="30" width="250" height="20"/>
+                                <rect key="frame" x="637" y="30" width="250" height="20"/>
                                 <subviews>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="REJ-Qn-9b6">
-                                        <rect key="frame" x="-7" y="-7" width="88" height="32"/>
+                                        <rect key="frame" x="-7" y="-7" width="89" height="32"/>
                                         <buttonCell key="cell" type="push" title="Share" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hsS-aU-voZ">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="share:" target="XfG-lQ-9wD" id="Q66-RQ-rZg"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eR2-Jp-dlH">
-                                        <rect key="frame" x="77" y="-7" width="95" height="32"/>
+                                        <rect key="frame" x="78" y="-7" width="95" height="32"/>
                                         <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f67-hB-oT6">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="download:" target="XfG-lQ-9wD" id="N0b-NQ-iaa"/>
+                                        </connections>
                                     </button>
                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QMl-Qi-sEe">
-                                        <rect key="frame" x="168" y="-7" width="89" height="32"/>
+                                        <rect key="frame" x="169" y="-7" width="88" height="32"/>
                                         <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ofX-b5-HI4">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -756,35 +765,26 @@
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="J2T-zR-MXD" secondAttribute="bottom" id="2Mt-n0-SZp"/>
                             <constraint firstItem="J2T-zR-MXD" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="4Xs-Cn-veh"/>
                             <constraint firstAttribute="bottom" secondItem="WKK-WX-EME" secondAttribute="bottom" constant="30" id="D22-eU-hew"/>
                             <constraint firstItem="J2T-zR-MXD" firstAttribute="width" secondItem="m2S-Jp-Qdl" secondAttribute="width" multiplier="0.333" id="EIx-ZJ-w8J"/>
                             <constraint firstItem="WKK-WX-EME" firstAttribute="leading" secondItem="J2T-zR-MXD" secondAttribute="trailing" constant="30" id="H7G-6n-KX3"/>
+                            <constraint firstAttribute="bottom" secondItem="zVQ-pG-2Ux" secondAttribute="bottom" id="h8S-zI-dkf"/>
+                            <constraint firstItem="zVQ-pG-2Ux" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="idN-aq-MML"/>
                             <constraint firstItem="J2T-zR-MXD" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="nb6-eN-9bu"/>
+                            <constraint firstItem="zVQ-pG-2Ux" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="oIt-a3-xzv"/>
+                            <constraint firstAttribute="bottom" secondItem="J2T-zR-MXD" secondAttribute="bottom" id="sjJ-Pt-dB7"/>
+                            <constraint firstAttribute="trailing" secondItem="zVQ-pG-2Ux" secondAttribute="trailing" id="ykP-ZQ-LE4"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="custom1" destination="zVQ-pG-2Ux" id="Kvz-jq-Qia"/>
                         <outlet property="customView" destination="J2T-zR-MXD" id="Uzz-Df-k0D"/>
-                        <outlet property="superView" destination="m2S-Jp-Qdl" id="poE-S7-tjh"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="327" y="636"/>
-        </scene>
-        <!--FullScreenVC-->
-        <scene sceneID="w9X-MN-0tL">
-            <objects>
-                <viewController title="FullScreenVC" storyboardIdentifier="FullScreenVC" id="IeG-AN-sHn" customClass="FullScreenVC" customModule="MacFullScreen" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="1na-CH-eju">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="wFE-Z7-W1W" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-549" y="743"/>
+            <point key="canvasLocation" x="75.5" y="821.5"/>
         </scene>
     </scenes>
 </document>
