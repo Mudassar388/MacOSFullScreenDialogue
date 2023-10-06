@@ -278,8 +278,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MVMPMJD8U2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacFullScreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Full Screen";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
@@ -305,8 +307,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = MVMPMJD8U2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MacFullScreen/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Full Screen";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;

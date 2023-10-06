@@ -36,12 +36,23 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //            Add a tap gesture recognizer to the view
+        
+        // Add a tap gesture recognizer to the view
         let tapGesture = NSClickGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         self.custom1.addGestureRecognizer(tapGesture)
         
-        // Add video playback code
-        if let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4") {
+        // Specify the file path of the video you want to play
+        let filePath =  "/Users/mac/Downloads/kilo.mp4" // Replace with the actual file path
+        // Play the video with the specified file path
+        playVideo(at: filePath)
+    }
+    
+    // Function to play a video from a given file path
+    func playVideo(at filePath: String) {
+        // Check if the video file exists at the specified path
+        if FileManager.default.fileExists(atPath: filePath) {
+            // Create an AVPlayer instance
+            let videoURL = URL(fileURLWithPath: filePath)
             player = AVPlayer(url: videoURL)
             
             // Create an AVPlayerView and add it to the custom view
@@ -56,12 +67,14 @@ class ViewController: NSViewController {
                     playerView.leadingAnchor.constraint(equalTo: customView.leadingAnchor),
                     playerView.trailingAnchor.constraint(equalTo: customView.trailingAnchor),
                     playerView.topAnchor.constraint(equalTo: customView.topAnchor),
-                    playerView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+                    playerView.bottomAnchor.constraint(equalTo: customView.bottomAnchor)
                 ])
             }
             
             // Play the video
             player.play()
+        } else {
+            print("Video file not found at the specified path: \(filePath)")
         }
     }
     
@@ -102,4 +115,3 @@ extension ViewController: NSSharingServicePickerDelegate {
         return proposedServices
     }
 }
-
